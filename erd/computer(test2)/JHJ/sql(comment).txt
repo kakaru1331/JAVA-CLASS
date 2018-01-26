@@ -1,0 +1,37 @@
+SELECT *
+FROM cpu a
+    ,graphicscard b
+    ,power1 c
+    ,board d
+    ,memory e
+    ,hdd f
+    ,main g
+    ,keyboard h
+    ,printer i
+    ,monitor j
+    ,mouse k
+    ,speaker l
+    ,sub m
+    ,computer n
+    ,customer o
+ WHERE a.cpu_id = g.cpu_id
+ AND b.gc_id = g.gc_id
+ AND c.power_id = g.power_id
+ AND d.board_id = g.board_id
+ AND e.memory_id = g.memory_id
+ AND f.hdd_id = g.hdd_id
+ ------------------------------------- main join
+ AND h.keyboard_id = m.keyboard_id
+ AND i.printer_id = m.printer_id
+ AND j.monitor_id = m.monitor_id
+ AND k.mouse_id = m.mouse_id
+ AND l.speaker_id = m.speaker_id
+ -------------------------------------- sub join
+ AND n.main_id = g.main_id
+ AND n.sub_id = m.sub_id
+ ------------------------------------- computer join
+ AND o.computer_id = n.computer_id 
+ ------------------------------------- customer join
+ 
+ 
+ 

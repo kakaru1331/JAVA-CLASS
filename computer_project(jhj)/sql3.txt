@@ -1,0 +1,63 @@
+SELECT o.customer_id
+      ,o.balance AS "소비자 소유금액"
+      ,a.cpu_name
+      ,b.gc_name
+      ,c.power_name
+      ,d.board_name
+      ,e.memory_name
+      ,f.hdd_name
+      , (a.cpu_price
+      +b.gc_price
+      +c.power_price
+      +d.board_price
+      +f.hdd_price) AS "PC 가격"
+      ,(h.keyboard_price
+      +i.printer_price
+      +j.monitor_price
+      +k.mouse_price
+      +l.speaker_price
+      ) AS "주변기기 가격"
+      , (a.cpu_price
+      +b.gc_price
+      +c.power_price
+      +d.board_price
+      +f.hdd_price)
+      + (h.keyboard_price
+      +i.printer_price
+      +j.monitor_price
+      +k.mouse_price
+      +l.speaker_price
+      ) AS "총합"      
+FROM cpu a
+    ,graphicscard b
+    ,power1 c
+    ,board d
+    ,memory e
+    ,hdd f
+    ,main g
+    ,keyboard h
+    ,printer i
+    ,monitor j
+    ,mouse k
+    ,speaker l
+    ,sub m
+    ,computer n
+    ,customer o
+ WHERE a.cpu_id = g.cpu_id
+ AND b.gc_id = g.gc_id
+ AND c.power_id = g.power_id
+ AND d.board_id = g.board_id
+ AND e.memory_id = g.memory_id
+ AND f.hdd_id = g.hdd_id
+ #메인
+ AND h.keyboard_id = m.keyboard_id
+ AND i.printer_id = m.printer_id
+ AND j.monitor_id = m.monitor_id
+ AND k.mouse_id = m.mouse_id
+ AND l.speaker_id = m.speaker_id
+ #서브
+ AND n.main_id = g.main_id
+ AND n.sub_id = m.sub_id
+ #메인+서브
+ AND o.computer_id = n.computer_id
+ #컴퓨터 + 소비자
