@@ -1,0 +1,72 @@
+SELECT b.name
+      ,c.name
+      ,a.amount
+      ,c.price
+      ,(a.amount * c.price) AS total
+      ,a.reg_date
+      ,(SELECT NOW())
+FROM sale_history a, customer b, electronic c
+WHERE a.c_seq = b.c_seq
+AND a.e_seq = c.e_seq
+AND a.c_seq = 4
+-------------------------------------------------------
+SELECT b.name
+      ,c.name
+      ,a.amount
+      ,c.price
+      ,(a.amount * c.price) AS total
+      ,a.reg_date
+FROM sale_history a
+RIGHT JOIN customer b ON a.c_seq = b.c_seq
+LEFT JOIN electronic c ON a.e_seq = c.e_seq
+-------------------------------------------------------
+SELECT b.name
+      ,a.amount
+      ,a.reg_date
+FROM sale_history a
+RIGHT JOIN customer b ON a.c_seq = b.c_seq
+-------------------------------------------------------
+SELECT b.name
+      ,c.name
+      ,a.amount
+      ,c.price
+      ,a.reg_date
+FROM sale_history a
+JOIN customer b ON a.c_seq = b.c_seq
+JOIN electronic c ON a.e_seq = c.e_seq
+WHERE a.c_seq = 4
+--------------------------------------------------------
+SELECT *
+FROM sale_history
+WHERE c_seq = (SELECT c_seq
+               FROM customer
+               WHERE name = 'È«±æµ¿'
+              )
+              
+----------------------------------------
+SELECT *
+FROM sale_history
+WHERE e_seq = (SELECT e_seq
+               FROM electronic
+               WHERE company = '»ï¼ºÀüÀÚ'
+              )
+-------------------------------------------------------
+SELECT c_seq
+       ,COUNT(c_seq)
+FROM sale_history
+GROUP BY c_seq
+---------------------------
+SELECT e_seq
+       ,COUNT(e_seq)
+FROM sale_history
+GROUP BY e_seq
+HAVING e_seq = 2
+
+------------------------------------
+
+SELECT a.name
+      ,b.balance
+      ,c.name
+FROM customer a, account b, bank c
+WHERE a.a_seq = b.a_seq
+AND b.b_seq = c.b_seq

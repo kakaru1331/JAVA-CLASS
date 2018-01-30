@@ -1,0 +1,27 @@
+CREATE TABLE `customer` (
+  `c_seq` int(8) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `age` int(3) NOT NULL,
+  `gender` char(1) CHARACTER SET latin1 NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `a_seq` int(8) NOT NULL,
+  PRIMARY KEY (`c_seq`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `electronic` (
+  `e_seq` int(8) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `company` varchar(100) NOT NULL,
+  `price` int(10) NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`e_seq`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sale_history` (
+  `s_seq` int(8) NOT NULL AUTO_INCREMENT,
+  `amount` int(3) NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `c_seq` int(8) NOT NULL,
+  `e_seq` int(8) NOT NULL,
+  PRIMARY KEY (`s_seq`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

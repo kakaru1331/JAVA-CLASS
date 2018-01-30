@@ -1,0 +1,37 @@
+CREATE DATABASE gugudan
+----------------------------------------------------------------------
+CREATE TABLE `gugu` (
+  `g_seq` int(3) NOT NULL AUTO_INCREMENT,
+  `num1` int(1) NOT NULL,
+  `num2` int(1) NOT NULL,
+  `sum` int(2) NOT NULL,
+  `evenYN` char(1) CHARACTER SET latin1 NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`g_seq`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+----------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS gugudan.makeGuGuDan;
+CREATE PROCEDURE gugudan.`makeGuGuDan`(dan INT)
+BEGIN
+  DECLARE i INT;
+  DECLARE j INT;
+  SET i = 1;
+  WHILE i <= dan DO
+    SET j = 1;
+    WHILE j < 10 DO
+      IF (i*j)%2 = 0 THEN
+        INSERT INTO gugu (num1,num2,sum,evenYN) VALUES (i,j,(i*j),'Y');
+      ELSE
+        INSERT INTO gugu (num1,num2,sum,evenYN) VALUES (i,j,(i*j),'N');
+      END IF;
+      SET j = j + 1;
+    END WHILE;
+    SET i = i + 1;
+  END WHILE;
+END;
+-----------------------------------------------------------------------
+DROP FUNCTION IF EXISTS gugudan.add2;
+CREATE FUNCTION gugudan.`add2`(num1 INT,num2 INT) RETURNS int(11)
+BEGIN
+	RETURN num1 + num2;
+END;

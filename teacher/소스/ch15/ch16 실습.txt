@@ -1,0 +1,9 @@
+1.List
+2.Map
+3.List<Map> vs List<Person>
+4.세미 프로젝트
+/**입력**/
+Scanner scan = new Scanner(System.in);
+System.out.println("이름을 입력하세요.");
+String name = scan.nextLine();
+System.out.println("이름:"+input);
