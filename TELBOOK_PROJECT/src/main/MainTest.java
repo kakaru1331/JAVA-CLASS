@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import function.CreateTel;
 import function.ReadTel;
+import function.SearchTel;
 
 public class MainTest {
 	
@@ -20,6 +21,7 @@ public class MainTest {
 		
 		CreateTel createTel = new CreateTel();		
 		ReadTel readTel = new ReadTel();
+		SearchTel searchTel = new SearchTel();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -33,15 +35,20 @@ public class MainTest {
 			while(true) {
 				System.out.println("1. 조회");
 				System.out.println("2. 추가");
+				System.out.println("3. 검색");
 				System.out.println("5. 종료");
 				String menu = scan.nextLine();
 				
 				if (menu.equals("1")) {
-					readTel.Read(connection);
+					readTel.read(connection);
 				}
 				
 				if (menu.equals("2")) {
-					createTel.Create(connection);
+					createTel.create(connection);
+				}
+				
+				if (menu.equals("3")) {
+					searchTel.search(connection);
 				}
 				
 				if (menu.equals("5")) {
@@ -49,6 +56,10 @@ public class MainTest {
 					return;
 				}
 			}
+			
+			 
+			/* # 할 일
+			 * 1. 메소드 앞글자 소문자 변경*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();

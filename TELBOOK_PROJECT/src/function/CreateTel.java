@@ -16,7 +16,7 @@ public class CreateTel {
 	
 	PreparedStatement ps = null;	
 	
-	public void Create(Connection connection) {
+	public void create(Connection connection) {
 		
 		// 사용자 입력		
 		name = null;
@@ -47,40 +47,18 @@ public class CreateTel {
 					") ";
 					
 			ps = (PreparedStatement) connection.prepareStatement(sql);
-			
+			ps.setString(1, name);
+			ps.setString(2, tel);
+			ps.setString(3, group);
+			ret = ps.executeUpdate();					
+						
 			if (ret == 1) {
-				ps.setString(1, name);
-				ret = ps.executeUpdate();
-				
-				if (ret == 1) {
-					ps.setString(2, tel);
-					ret = ps.executeUpdate();
-					
-					if (ret == 1) {
-						ps.setString(3, group);		
-						ret = ps.executeUpdate();
-						connection.commit();
-					} else {
-						connection.rollback();
-						System.out.println("return: " + ret);
-					}
-					
-				} else {
-					connection.rollback();
-					System.out.println("return: " + ret);
-				}
-				
+				connection.commit();
+				System.out.println("update complete!");
 			} else {
 				connection.rollback();
-				System.out.println("Some error occured.");
-			}					
-						
-//			if (ret == 1) {
-//				connection.commit();
-//			} else {
-//				connection.rollback();
-//				System.out.println("return: " + ret);
-//			}
+				System.out.println("return: " + ret);
+			}
 			
 			ps.close();
 		

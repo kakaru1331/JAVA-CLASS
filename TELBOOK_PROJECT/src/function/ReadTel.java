@@ -22,7 +22,7 @@ public class ReadTel {
 	PreparedStatement ps = null;
 	ResultSet rs = null;
 	
-	public void Read(Connection connection) {				
+	public void read(Connection connection) {				
 		
 		try {		
 								
