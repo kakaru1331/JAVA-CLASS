@@ -44,9 +44,7 @@ public class SearchTel {
 					"WHERE name LIKE ?";
 				
 				ps = (PreparedStatement) connection.prepareStatement(sql);
-				ps.setString(1, tmpStr);
-				
-				System.out.println(ps);
+				ps.setString(1, tmpStr);				
 				rs = ps.executeQuery();
 				
 				System.out.println("===== 검색 결과 =====");

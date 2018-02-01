@@ -5,12 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
-public class ReadTel {
-	Scanner scan = new Scanner(System.in);
-	String menu = null;
-	
+public class ReadTel {		
 	String id = null;
 	String name = null;
 	String tel = null;

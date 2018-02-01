@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.util.Scanner;
 
 import function.CreateTel;
+import function.DeleteTel;
 import function.ReadTel;
 import function.SearchTel;
+import function.UpdateTel;
 
 public class MainTest {
 	
@@ -22,6 +24,8 @@ public class MainTest {
 		CreateTel createTel = new CreateTel();		
 		ReadTel readTel = new ReadTel();
 		SearchTel searchTel = new SearchTel();
+		UpdateTel updateTel = new UpdateTel();
+		DeleteTel deleteTel = new DeleteTel();
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -36,7 +40,9 @@ public class MainTest {
 				System.out.println("1. 조회");
 				System.out.println("2. 추가");
 				System.out.println("3. 검색");
-				System.out.println("5. 종료");
+				System.out.println("4. 수정");
+				System.out.println("5. 삭제");
+				System.out.println("6. 종료");
 				String menu = scan.nextLine();
 				
 				if (menu.equals("1")) {
@@ -51,7 +57,15 @@ public class MainTest {
 					searchTel.search(connection);
 				}
 				
+//				if (menu.equals("4")) {
+//					updateTel.update(connection);
+//				}
+				
 				if (menu.equals("5")) {
+					deleteTel.delete(connection);
+				}
+				
+				if (menu.equals("6")) {
 					System.out.println("프로세스 종료");
 					return;
 				}
