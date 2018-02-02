@@ -47,22 +47,27 @@ public class MainTest {
 				
 				if (menu.equals("1")) {
 					readTel.read(connection);
+					System.out.println();
 				}
 				
 				if (menu.equals("2")) {
 					createTel.create(connection);
+					System.out.println();
 				}
 				
 				if (menu.equals("3")) {
 					searchTel.search(connection);
+					System.out.println();
 				}
 				
-//				if (menu.equals("4")) {
-//					updateTel.update(connection);
-//				}
+				if (menu.equals("4")) {
+					updateTel.update(connection);
+					System.out.println();
+				}
 				
 				if (menu.equals("5")) {
 					deleteTel.delete(connection);
+					System.out.println();
 				}
 				
 				if (menu.equals("6")) {

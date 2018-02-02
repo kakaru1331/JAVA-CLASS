@@ -16,8 +16,9 @@ public class DeleteTel {
 	String group = null;
 	String reg_date = null;
 	String checking = null;
-
 	String sql = null;
+	
+	int ret = 0;
 
 	PreparedStatement ps = null;
 	ResultSet rs = null;
@@ -56,18 +57,18 @@ public class DeleteTel {
 				"WHERE id = ? ";
 			ps = (PreparedStatement) connection.prepareStatement(sql);
 			ps.setString(1, id);
-			System.out.println(ps);
 			rs = ps.executeQuery();
-			System.out.println(rs);
 			
 			rs.next();
 			name = rs.getString("name");
 			tel = rs.getString("tel");
 			group = rs.getString("group");
 			
-			System.out.println("확인해주세요");
+			System.out.println("삭제할 정보가 맞나요?");
+			System.out.println();
 			System.out.println(name + " | " + tel + " | " + group);
-			System.out.println("삭제하실 거예요?: [y/n]");
+			System.out.println();
+			System.out.println("삭제하실 거예요? [y/n]");
 			checking = scan.nextLine();
 			
 			if (checking.equals("y")) {				
@@ -80,9 +81,16 @@ public class DeleteTel {
 
 				ps = (PreparedStatement) connection.prepareStatement(sql);
 				ps.setString(1, id);				
-				ps.executeUpdate();				
+				ret = ps.executeUpdate();				
 				
-				System.out.println("해당 정보를 삭제했습니다.");
+				if (ret == 1) {
+					connection.commit();
+					System.out.println("해당 정보를 삭제했어요.");					
+				} else {
+					connection.rollback();
+					System.out.println("음, 뭔가 오류가 발생했어요.");
+				}
+				
 			} else {
 				System.out.println("맞아요, 지우긴 좀 아깝죠~");
 			}			

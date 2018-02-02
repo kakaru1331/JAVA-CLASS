@@ -16,13 +16,7 @@ public class CreateTel {
 	
 	PreparedStatement ps = null;	
 	
-	public void create(Connection connection) {
-		
-		// 사용자 입력		
-		name = null;
-		tel = null;
-		group = null;
-		
+	public void create(Connection connection) {		
 		System.out.println("이름을 입력해주세요");
 		name = scan.nextLine();
 		
@@ -30,9 +24,7 @@ public class CreateTel {
 		tel = scan.nextLine();
 		
 		System.out.println("그룹을 입력해주세요");
-		group = scan.nextLine();
-		
-		// SQL				
+		group = scan.nextLine();		
 		
 		try {			
 			sql = 
@@ -54,10 +46,10 @@ public class CreateTel {
 						
 			if (ret == 1) {
 				connection.commit();
-				System.out.println("update complete!");
+				System.out.println("추가했어요!");
 			} else {
 				connection.rollback();
-				System.out.println("return: " + ret);
+				System.out.println("음, 뭔가 오류가 발생했어요.");
 			}
 			
 			ps.close();
