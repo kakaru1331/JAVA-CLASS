@@ -20,15 +20,20 @@
             </tr>
             <tr>
                 <td>1</td>
-                <td>김삿갓</td>
+                <td onclick="alert('김삿갓 Clicked')">김삿갓</td>
                 <td>20</td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>나나나</td>
+                <td id="td2">나나나</td>
                 <td>21</td>
             </tr>            
         </table>
     </div>
+    <script>
+        document.getElementById('td2').addEventListener('click', function() {
+            alert('나나나 Clicked');
+        });
+    </script>
 </body>
 </html>
