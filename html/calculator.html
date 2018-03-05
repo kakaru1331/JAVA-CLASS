@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+    <style>
+        table {
+            margin: 50px auto;
+        }
+        td {
+            padding: 50px;
+            border: 1px solid gray;
+        }
+        span {
+            margin: 50px;
+            padding: 20px;
+            border: 1px solid tomato;
+        }
+        #field {
+            padding: 100px;
+        }        
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><input type="button" value="7" id="pad7"></td>
+            <td><input type="button" value="8" id="pad8"></td>
+            <td><input type="button" value="9" id="pad9"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" id="pad4"></td>
+            <td><input type="button" value="5" id="pad5"></td>
+            <td><input type="button" value="6" id="pad6"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" id="pad1"></td>
+            <td><input type="button" value="2" id="pad2"></td>
+            <td><input type="button" value="3" id="pad3"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="+" id="add"></td>
+            <td><input type="button" value="0" id="pad0"></td>
+            <td><input type="button" value="-" id="sub"></td>
+        </tr>
+    </table>
+    <div>
+        <span id="field"></span>
+        <span><input type="button" value="=" id="equal"></span>
+        <span id="result"></span>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('input').click(function() {
+            var text = $(this).val();
+            console.log(text);
+            $('#field').text(text)
+        });
+
+        // var field = $('#field');
+        // $('#pad0').on('click', function() {
+        //     field.append(0);
+        // });
+        // $('#pad1').on('click', function() {
+        //     field.append(1);
+        // });
+        // $('#pad2').on('click', function() {
+        //     field.append(2);
+        // });
+        // $('#pad3').on('click', function() {
+        //     field.append(3);
+        // });
+        // $('#pad4').on('click', function() {
+        //     field.append(4);
+        // });
+        // $('#pad5').on('click', function() {
+        //     field.append(5);
+        // });
+        // $('#pad6').on('click', function() {
+        //     field.append(6);
+        // });
+        // $('#pad7').on('click', function() {
+        //     field.append(7);
+        // });
+        // $('#pad8').on('click', function() {
+        //     field.append(8);
+        // });
+        // $('#pad9').on('click', function() {
+        //     field.append('9');
+        // });
+        // $('#add').on('click', function() {
+        //     field.append('+');
+        // });
+        // $('#sub').on('click', function() {
+        //     field.append('-');
+        // });
+
+        // $('#eual').on('click', function() {
+            
+        // });        
+
+    </script>
+</body>
+</html>

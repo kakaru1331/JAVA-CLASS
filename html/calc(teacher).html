@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+</head>
+<body>
+    <div>
+        <span>계산기</span>
+    </div>
+    
+    <div id="display">
+        <!-- <input type="button" id="btn" value="1"> -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        for (var i=0; i<100; i++) {
+            var btn = '<input type="button" id="btn'+i+'" value="'+i+'">';
+            $('#display').append(btn);
+        }
+                
+        $('input').on('click', function() {
+            alert(this.value);
+        });
+
+        // for (var j=0; j<100; j++) {
+        //     $('#btn'+j).on('click', function() {
+        //         alert(j);
+        //     });
+        // }
+        
+    </script>
+</body>
+</html>

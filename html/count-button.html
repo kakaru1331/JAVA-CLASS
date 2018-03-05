@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Count Button</title>
+</head>
+<body>
+    <div id="counter">0</div>
+    <input type="button" value="+1" id="add">
+    <input type="button" value="-1" id="sub">
+
+    <script>
+        var number = 0;
+        var counter = document.querySelector('#counter');
+        
+        document.querySelector('#add').addEventListener('click', function() {
+            number++;
+            counter.textContent = number;
+        });
+        document.querySelector('#sub').addEventListener('click', function() {
+            number--;
+            counter.textContent = number;
+        });
+    </script>
+</body>
+</html>

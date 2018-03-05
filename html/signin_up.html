@@ -12,7 +12,7 @@
         <div>
           <span>아이디</span>
           <br>
-          <input type="text" name="id">
+          <input type="text" id="id" name="id">
           <input type="button" value="중복 확인">
           <br>
           <span style="font-size:12px">숫자, 영어, 특수 기호를 사용하여 8~12자로 해주세요.</span>
@@ -76,7 +76,25 @@
         </div>
       </li>
     </ul>
-    <input type="submit" value="제출">
+    <input id="submitBtn" type="button" value="회원가입">
   </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    var submitBtn = document.getElementById('submitBtn');
+    // submitBtn.onclick = function() {
+    //   alert('onclick!');
+    // }
+
+    // submitBtn.addEventListener('click', function() { alert('addEventListner') });
+
+    $('#submitBtn').on('click', function() {
+      if ('' === $('#id').val()) {
+        alert('아이디를 입력해주세요.');
+      } else {
+        alert('중복확인을 해주세요.');
+      }
+    });
+  </script>
 </body>
 </html>
