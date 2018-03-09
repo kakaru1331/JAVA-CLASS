@@ -18,4 +18,13 @@
   	<servlet-name>MyServlet</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>PServlet</servlet-name>
+  	<servlet-class>a.b.c.servlet.ParamServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>PServlet</servlet-name>
+  	<url-pattern>/param</url-pattern>
+  </servlet-mapping>
 </web-app>
