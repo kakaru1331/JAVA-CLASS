@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/resources/demos/style.css">
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<link href="./common.css" rel="stylesheet" type="text/css">
+		<script>
+		  $( function() {
+			$( "#datepicker" ).datepicker();
+		  } );
+		</script>
+	</head>
+	<body>
+		<div>
+			<input type="text" id="datepicker" placeholder="날짜">
+		</div>
+		<div>
+			<span>검색 결과</span>
+		</div>
+		<div>
+			<table>
+				<tr>
+					<th>No.</th>
+					<th>Name</th>
+					<th>Age</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td id="hong">홍길동</td>
+					<td>20</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>이순신</td>
+					<td>21</td>
+				</tr>
+			</table>
+		</div>
+		
+		<script>
+			document.getElementById('hong').addEventListener('click',function(event){
+				console.log(this.childNodes[0].nodeValue);
+			});
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

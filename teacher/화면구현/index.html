@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div class="zero" >
+			<input type="button" value="전송1">
+			<input type="button" value="전송2">
+		</div>
+		<div class="zero" >
+			<input type="button" value="전송3">
+			<input type="button" value="전송4">
+		</div>
+		<script>
+		(function($) {
+			$.fn.zerofy = function(options) {
+			  var settings = $.extend({
+				repeat: 1
+			  }, options);
+			  var zeros = '0'.repeat(settings.repeat);
+			  return this.each(function() {
+				$(this).html(zeros);
+			  });
+			};
+		})(jQuery);
+		$('.zero').zerofy({ repeat: 5 });
+		</script>
+	</body>
+</html>

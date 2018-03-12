@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>daum cafe - cjass</title>
+	</head>
+	<body>
+		<div>
+			<h1>커피</h1>
+			<input type="text" id="disc" placeholder="할인율">
+			<input type="button" id="calc" value="계산">
+			<br>
+			<h2></h2>
+		</div>
+		<script>
+			var Coffee = (function(){
+				//생성자
+				function Coffee(origin){
+					this.origin = origin;
+				}
+				Coffee.prototype.drip = function(){
+					console.log('coffee : ' + this.origin);
+				};
+				return Coffee;
+			})();
+			var Latte = (function(){
+				function Latte(origin, milk){
+					Coffee.apply(this, arguments);
+					this.milk = milk;
+				}
+				//상속
+				Latte.prototype = Object.create(Coffee.prototype);
+				Latte.prototype.constructor = Latte;
+				Latte.prototype.make = function(){
+					console.log('milk : ' + this.milk);
+				};
+				//클로저
+				Latte.prototype.price = function(){
+					var standard = 5000;
+					return {
+						calc : function(discount){
+							return standard * discount;
+						}
+					};
+				};
+				return Latte;
+			})();
+			
+			var latte1 = new Latte('케냐','매일우유');
+			console.log(latte1);
+			latte1.drip();
+			latte1.make();
+			
+			//이벤트 리스너
+			document.getElementById('calc').addEventListener('click', function(){
+				//이벤트 루프
+				setTimeout(callback, 3000);
+				document.querySelector('h2').innerHTML = '계산중...';
+			});
+			//호이스팅
+			function callback(){
+				var disc = document.getElementById('disc').value || 1.0; //디폴트값
+				document.querySelector('h2').innerHTML = latte1.price().calc(disc);
+			}
+		</script>
+	</body>
+</html>

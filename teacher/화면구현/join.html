@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>회원 가입</title>
+		<script src="./jquery-3.3.1.min.js"></script>
+	</head>
+	<body>
+		<h1>회원 가입 양식</h1>
+		<form action="/join" method="get">
+			<ul>
+				<li>
+					<div>
+						<span>아이디</span>
+						<br>
+						<input type="text" id="id" name="id">
+						<input type="button" value="중복확인">
+						<br>
+						<span style="font-size:10px;">아이디는 숫자,영어,특수기호 8 ~ 12자 입니다.</span>
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>비밀번호</span>
+						<br>
+						<input type="password" name="pw">
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>이름</span>
+						<br>
+						<input type="text" name="name">
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>생년월일</span>
+						<br>
+						<input type="date" name="birth">
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>성별</span>
+						<br>
+						<input type="radio" name="gender" value="M" checked>남자
+						<input type="radio" name="gender" value="F">여자
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>취미</span>
+						<br>
+						<input type="checkbox" name="hobby" value="영화">영화
+						<input type="checkbox" name="hobby" value="등산">등산
+						<input type="checkbox" name="hobby" value="IT">IT
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>거주지</span>
+						<br>
+						<select name="addr">
+							<option value="서울">서울</option>
+							<option value="경기">경기</option>
+							<option value="대전">대전</option>
+							<option value="제주">제주</option>
+						</select>
+					</div>
+				</li>
+				<li>
+					<div>
+						<span>기타사항</span>
+						<br>
+						<textarea rows="5" name="etc"></textarea>
+					</div>
+				</li>
+			</ul>
+			<input type="button" id="okBtn" value="회원가입">
+		</form>
+		<script>
+			/*
+			document.getElementById('okBtn').onclick = function(){
+				alert('클릭1!');
+			};
+			document.getElementById('okBtn').addEventListener('click',function(){
+				alert('클릭2!');
+			});
+			 onclick="alert('클릭3!');"
+			*/
+			$('#okBtn').on('click',function(){
+				if('' == $('#id').val()){
+					alert('아이디를 입력해주세요.');
+				}else{
+					alert('중복확인을 해주세요.');
+				}
+			});
+			
+			
+		</script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>

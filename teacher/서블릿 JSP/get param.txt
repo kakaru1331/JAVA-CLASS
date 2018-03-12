@@ -1,0 +1,1 @@
+http://localhost/param?id=kdhong1&id=kdhong2&id=kdhong3

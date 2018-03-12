@@ -1,0 +1,45 @@
+01. WWW(World Wide Web)
+	- OSI(Open System Interconnection) 7 Layer Model
+	- HTML(Hyper Text Markup Language)
+	- HTTP(Hyper Text Transfer Protocol)
+		1. Head / Body(Multipart)
+			(1) MIME(Multipurpose Internet Mail Extensions)-Type
+		2. Get / Post
+		3. Request / Response
+		4. HTTP Status Code
+	- CGI(Common Gateway Interface)
+	- HTTPS(Secure Socket Layer)
+	- RSA(Ron Rivest,Adi Shamir,Leonard Adleman)
+02. Java EE(Java Enterprise Edition)
+	- WAS(Web Application Server) / WEB / CDN / ISP
+	- Servlet(Server Applet)
+	- JSP(Java Server Pages)
+		(1)<%@	%> Directives
+		(2)<%!	%> Declarations
+		(3)<%	%> Scriptlet
+		(4)<%=	%> Expression
+03. Architecture
+	- Model 1
+		(1) Servlet
+		(2) JSP
+	- Model 2
+		(1) Struts
+		(2) Customize
+04. MVC pattern
+	- Model
+	- View
+	- Controller
+05. ETC
+	- Filter / Interceptor
+	- Forward / Redirect
+	- JSESSIONID : Cookie / Session
+	- XML(Extensible Markup Language) / JSON(JavaScript Object Notation)
+	- AJAX(Asynchronous JavaScript And XML)
+	- REST(Representational State Transfer)ful
+	- JSTL(JavaServer Pages Standard Tag Library)
+	- EL(Expression Language)
+	- Error Page
+06. Security
+	- XSS(cross-site scripting)
+	- Session Fixation
+	- DNS Hijacking
