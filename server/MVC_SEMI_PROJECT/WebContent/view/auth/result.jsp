@@ -12,6 +12,7 @@
 	
 	<div>
 		<span><%= request.getAttribute("msg") %></span>
+		<span>${requestScope.msg}</span>
 	</div>
 	
 	<script>

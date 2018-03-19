@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import a.b.c.auth.LoginController;
+import a.b.c.user.MemberController;
 
 public class MainServlet extends HttpServlet {
 	
@@ -30,7 +31,14 @@ public class MainServlet extends HttpServlet {
 			if ("/login.do".equals(uri)) {
 				String page = new LoginController(req).process(uri);
 				req.getRequestDispatcher(page).forward(req, res);
-			}			
+			}
+			
+			if ("/selectMember.do".equals(uri)) {
+				String page = new MemberController(req).process(uri);
+				req.getRequestDispatcher(page).forward(req, res);
+			}
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
