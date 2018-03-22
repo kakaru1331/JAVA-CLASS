@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.connector.Request;
 
 public class LoginController {
 	
@@ -19,6 +22,12 @@ public class LoginController {
 			return "/view/auth/loginP.jsp";
 		}
 		
+		if ("/logout.do".equals(uri)) {
+			req.getSession().invalidate();
+			
+			return "/view/auth/loginP.jsp";
+		}
+		
 		if ("/login.do".equals(uri)) {	
 			String id = req.getParameter("id");
 			String pw = req.getParameter("pw");
@@ -27,15 +36,22 @@ public class LoginController {
 			map.put("id", id);
 			map.put("pw", pw);
 			
-			// park / 25
 			Map result = new LoginModel().checkAuth(map);
 			
 			if ("Y".equals(result.get("result"))) {
-				req.setAttribute("msg", "Y");
-				req.setAttribute("name", result.get("name"));
+				// userInfo -> key: c_seq, id, name 				
+				Map userInfo = (Map)map.get("userInfo");
+				
+				HttpSession session = req.getSession();
+				session.setAttribute("userInfo", userInfo);
+				
+//				req.setAttribute("msg", "Y");
+//				req.setAttribute("name", userInfo.get("name"));
+				
 				return "/view/auth/result.jsp";
 			} else {
-				req.setAttribute("msg", "N");				
+//				req.setAttribute("msg", "N");		
+				
 				return "/view/auth/result.jsp";
 			}
 

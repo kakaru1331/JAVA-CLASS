@@ -13,7 +13,7 @@
 	</div>
 	
 	<div>
-		<form action="/login.do" method="POST">
+		<form action="/login.do" method="POST" id="login_form">
 			<input type="text" name="id" id="user_id">
 			<input type="password" name="pw">
 			<input type="button" id="login_btn" value="로그인">
@@ -29,22 +29,20 @@
 	<script type="text/javascript">
 		var id_store_check_box = $('#id_store_check_box');
 		var login_btn = $('#login_btn');
-		var user_id = $('#user_id');		
+		var user_id = $('#user_id');				
+		var login_form = $('#login_form');
 		
-		//console.log( $('#id_store_check_box').prop('checked') );
-		//console.log(id_store_check_box);
 		user_id.val($.cookie('user_id'));
-		
-		/* id_store_check_box.on('click', function() {
-			console.log( $('#id_store_check_box').prop('checked') );
-		}); */
 		
 		login_btn.on('click', function() {
 			if (id_store_check_box.prop('checked')) {
 				alert('Create a login cookie');
 				
 				$.cookie('isStored', true);
-				$.cookie('user_id', user_id.val())
+				$.cookie('user_id', user_id.val());
+				login_form.submit();
+				
+				
 			} else {
 				alert('Delete the login cookie');
 				

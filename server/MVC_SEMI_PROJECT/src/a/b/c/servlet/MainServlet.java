@@ -33,10 +33,17 @@ public class MainServlet extends HttpServlet {
 				req.getRequestDispatcher(page).forward(req, res);
 			}
 			
+			if ("/logout.do".equals(uri)) {
+				String page = new LoginController(req).process(uri);
+				req.getRequestDispatcher(page).forward(req, res);
+			}
+			
 			if ("/selectMember.do".equals(uri)) {
 				String page = new MemberController(req).process(uri);
 				req.getRequestDispatcher(page).forward(req, res);
 			}
+			
+			
 			
 			
 		} catch (Exception e) {

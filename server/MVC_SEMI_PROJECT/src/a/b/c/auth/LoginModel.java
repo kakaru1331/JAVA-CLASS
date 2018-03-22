@@ -3,9 +3,8 @@ package a.b.c.auth;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
-
-import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
@@ -34,9 +33,13 @@ public class LoginModel {
 			ps.setString(2, (String)map.get("pw"));
 			rs = ps.executeQuery();			
 			
-			if (rs.next()) {
+			if (rs.next()) {				
+				Map info = new HashMap();
+				info.put("c_seq", rs.getString("c_seq"));				
+				info.put("name", rs.getString("name"));
+				
 				map.put("result", "Y");
-				map.put("name", rs.getString("name"));
+				map.put("userInfo", info);
 			}			
 			
 			ps.close();
