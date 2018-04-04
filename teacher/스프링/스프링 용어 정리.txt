@@ -1,0 +1,23 @@
+01. Framework?
+	- 정의
+	- J2EE API - EJB(Enterprise JavaBeans)
+	- Spring(Spring Framework)
+02. 핵심 개념
+	- POJO(Plain Old Java Object)
+	- IoC(Inversion of Control)
+	- DI(Dependency Injection)
+	- AOP(Aspect Oriented Programming)
+03. Configuration
+	- XML(Extensible Markup Language)
+	- @(Annotation)
+04. Spring MVC
+	- DispatcherServlet
+	- @Controller
+	- ModelAndView or Model
+	- ViewResolver
+05. ETC
+	- Maven
+	- 배치프로그램(Daemon)
+		(1) DB Scheduler, Event
+		(2) UNIX/LINUX Contab
+		(3) Java Quartz, SpringFramework Task

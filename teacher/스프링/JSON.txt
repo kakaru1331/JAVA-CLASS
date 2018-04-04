@@ -1,0 +1,19 @@
+https://www.json.org/json-ko.html
+https://sites.google.com/site/gson/gson-user-guide/#TOC-Overview
+
+List list = new ArrayList();
+Map m = new HashMap();
+m.put("name", "kdhong");
+m.put("age", "20");
+list.add(m);
+m = new HashMap();
+m.put("name", "sslee");
+m.put("age", "21");
+list.add(m);
+
+Gson gson = new Gson();
+JsonObject jo = new JsonObject();
+jo.addProperty("result", "0");
+jo.add("list", gson.toJsonTree(list));
+
+return jo.toString();
