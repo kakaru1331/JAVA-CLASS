@@ -13,7 +13,7 @@ public class LoginController {
 	@RequestMapping(value="/auth/loginP", method=RequestMethod.GET)
 	public String loginP() {
 		
-		return "/auth/loginP";
+		return "auth/loginP";
 	}
 	
 	@RequestMapping(value="/auth/login", method=RequestMethod.POST)
@@ -29,8 +29,9 @@ public class LoginController {
 			session.setAttribute("id", inputID);
 			
 			return "redirect:/main";			
-		} else 
-			return "auth/loginP";		
+		}  
+		
+		return "auth/loginP";		
 	}
 	
 	@RequestMapping(value="/auth/logout", method=RequestMethod.GET)
