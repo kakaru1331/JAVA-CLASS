@@ -1,8 +1,20 @@
 # JAVA-CLASS
-JAVA CLASS (2017-12 ~ 2018-06)
 
-# 수업 요약
-그날의 강의 내용 중에서 이론과 개념 위주로 요약합니다.   
+I'm taking java class that national support policy  
+This repo is to log it. 
+(DEC 2017 ~ JUNE 2018)
 
-# 소스 코드
-실습 코드도 몇 가지 간추려서 올립니다.
+---
+
+## Content
+
+### Summary
+
+summarized daily lecture.  
+ex)  
+OOP, inheritance, polymorphism, data structures in JAVA  
+DOM, event, callback in javascript etc...
+
+### Source Code (Project)
+
+coding, coded, code!
