@@ -1,0 +1,11 @@
+CREATE TABLE `member` (
+  `seq` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(20) NOT NULL,
+  `pw` varchar(200) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `phone` varchar(11) NOT NULL,
+  `age` int(3) NOT NULL,
+  `reg_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `gender` varchar(2) NOT NULL,
+  PRIMARY KEY (`seq`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
