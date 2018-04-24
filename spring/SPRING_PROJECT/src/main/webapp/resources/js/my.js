@@ -31,6 +31,7 @@ function doAjax() {
 		dataType : "json"
 	//contentType: "application/json; charset=utf-8"
 	}).done(function(msg) {
+		console.log(msg);
 		$('.ajaxLayer').hide();
 		//alert(msg.message);
 		//var html = '<div>'+msg.message+'</div>';

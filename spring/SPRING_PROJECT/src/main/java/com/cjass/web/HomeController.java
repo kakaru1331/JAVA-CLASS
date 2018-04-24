@@ -80,7 +80,7 @@ public class HomeController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/ajax", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/ajax", method = RequestMethod.POST, produces = "application/json; charset=UTF-8")
 	@ResponseBody
 	public Map ajax(Locale locale, Model model, @RequestParam Map map, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -90,7 +90,7 @@ public class HomeController {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+		
 		return map;
 	}
 
