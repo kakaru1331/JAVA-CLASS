@@ -11,7 +11,7 @@
 
 	<P>The time on the server is ${serverTime}.</P>
 
-	<div>
+	<div id="display">
 		추천수 <span id="count">0</span>
 	</div>
 	<div>
@@ -22,7 +22,7 @@
 	<script type="text/javascript">
 		var count = $('#count');
 		
-		$('#btnUP, #btnDOWN').on('click', function() => {
+		$('#btnUP, #btnDOWN').on('click', function() {
 			var type;
 			
 			if ('UP' == this.value)
@@ -33,13 +33,19 @@
 			
 			$.ajax({
 				  method: "POST"
-				  ,url: "/vote"
+				  ,url: "/vote3"
 				  ,data : {
 					  type : type
 				  }
 				})
-				  .done(function( msg ) {
-				    count.text(msg);
+				  .done(function(msg) {
+					  var jo = JSON.parse(msg);					  
+					  console.log(jo.result);
+					  console.log(jo.data);
+					  console.log(jo.error);
+					  
+					  count.text(jo.data);
+					/* $('#display').html(msg); */
 				  });
 		});
 		

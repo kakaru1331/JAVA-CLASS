@@ -1,6 +1,7 @@
 package a.b.c;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 /**
  * Handles requests for the application home page.
@@ -51,5 +55,39 @@ public class HomeController {
 			count--;
 		
 		return Integer.toString(count);
+	}
+	
+	@RequestMapping(value="/vote2", method = RequestMethod.POST)	
+	public String vote2(@RequestParam Map map, Model model) {		
+		String type = (String)map.get("type");	
+
+		if ("1".equals(type))
+			count++;
+		else
+			count--;
+		
+		model.addAttribute("count", count);
+		
+		return "part";
+	}
+	
+	@RequestMapping(value="/vote3", method = RequestMethod.POST)
+	@ResponseBody
+	public String vote3(@RequestParam Map map, Model model) {		
+		String type = (String)map.get("type");	
+
+		if ("1".equals(type))
+			count++;
+		else
+			count--;
+		
+//		model.addAttribute("count", count);
+		
+		JsonObject jo = new JsonObject();
+		jo.addProperty("result", "1");
+		jo.addProperty("data", count);
+		jo.addProperty("error", "IOException");
+		
+		return new Gson().toJson(jo);
 	}
 }
